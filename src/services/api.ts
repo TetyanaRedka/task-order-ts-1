@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { OrderType, NewOrderType, ProductType, StatusType } from "@/dto/types";
+import { OrderType } from "@/dto/types";
 
 axios.defaults.baseURL = "https://webtest.it.ua/testApp/api";
 
@@ -10,7 +10,7 @@ const getOrders = async () => await axios.get(`/orders`);
 
 const getStatus = async () => await axios.get(`/statuses`);
 
-const addOrder = async (newOrder: NewOrderType) =>
+const addOrder = async (newOrder: Omit<OrderType, "id" | "count">) =>
   await axios.post(`/orders/add`, newOrder);
 
 const deleteOrder = async (orderId: number) =>

@@ -1,23 +1,18 @@
 export interface ProductType {
-  id: number;
-  name: string;
-  price: number;
-  photoUrl: string;
+  readonly id: number;
+  readonly name: string;
+  readonly price: number;
+  readonly photoUrl: string;
 }
 
 export interface StatusType {
-  id: number;
-  name: string;
+  readonly id: number;
+  readonly name: string;
 }
 
 export interface OrderType {
-  id: number;
-  productId: number;
-  statusId: number;
-  count: number;
-}
-
-export interface NewOrderType {
-  productId: number;
-  count: number;
+  readonly id: number;
+  readonly productId: number;
+  readonly statusId: number;
+  readonly count: number;
 }

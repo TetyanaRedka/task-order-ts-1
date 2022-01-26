@@ -61,7 +61,7 @@
 
 <script lang="ts">
 import { OrderType, ProductType, StatusType } from "@/dto/types";
-import { PropType, ref } from "@vue/runtime-core";
+import { PropType } from "@vue/runtime-core";
 
 export default {
   name: "create-order",
@@ -69,7 +69,7 @@ export default {
   data(this: any): any {
     return {
       selectedProductId: this.actualOrder.productId as number,
-      productCount: this.actualOrder.count || (1 as number),
+      productCount: (this.actualOrder.count || 1) as number,
       selectedStatusId: this.actualOrder.statusId as number,
     };
   },
@@ -101,6 +101,7 @@ export default {
         return this.productCount * this.selectedProduct.price;
       return "";
     },
+
     isDisabled: function (this: any) {
       return this.selectedProductId ? true : false;
     },

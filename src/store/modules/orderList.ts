@@ -1,6 +1,6 @@
 import api from "@/services/api";
 
-import { OrderType, NewOrderType } from "@/dto/types";
+import { OrderType } from "@/dto/types";
 
 export const orderList = {
   state: {
@@ -38,7 +38,7 @@ export const orderList = {
       ctx.commit("SET_ORDERLIST", newOrderList.data);
     },
 
-    async addOrderAction(ctx: any, newOrder: NewOrderType) {
+    async addOrderAction(ctx: any, newOrder: Omit<OrderType, "id" | "count">) {
       const answer = await api.addOrder(newOrder);
       ctx.commit("ADD_TY_ORDERLIST", answer.data);
     },
